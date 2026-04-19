@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResellerHub - Sistem Reseller Terintegrasi</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>ResellerHub</h1>
+        <p>Sistem Reseller Terintegrasi</p>
+      </div>
+      <div id="sessionBadge" class="badge">Belum login</div>
+    </header>
+
+    <main>
+      <section id="authSection" class="panel">
+        <h2>Login & Pendaftaran Reseller</h2>
+        <div class="grid-2">
+          <form id="loginForm" class="card">
+            <h3>Login</h3>
+            <label>Email
+              <input type="email" id="loginEmail" required placeholder="reseller@email.com" />
+            </label>
+            <label>Password
+              <input type="password" id="loginPassword" required placeholder="••••••••" />
+            </label>
+            <label>Masuk sebagai
+              <select id="loginRole" required>
+                <option value="reseller">Reseller</option>
+                <option value="admin">Admin</option>
+              </select>
+            </label>
+            <button type="submit">Masuk</button>
+          </form>
+
+          <div class="card">
+            <h3>Pendaftaran Reseller</h3>
+            <p>
+              Pendaftaran dilakukan via WhatsApp untuk verifikasi cepat. Admin akan
+              melakukan approval sebelum akun aktif.
+            </p>
+            <a
+              id="waRegister"
+              class="button-link"
+              target="_blank"
+              rel="noreferrer"
+              href="https://wa.me/6281234567890?text=Halo%20Admin%2C%20saya%20ingin%20mendaftar%20sebagai%20reseller."
+              >Daftar via WhatsApp</a
+            >
+            <form id="registerForm">
+              <label>Nama Reseller
+                <input type="text" id="registerName" required />
+              </label>
+              <label>Tipe Reseller
+                <select id="registerType" required>
+                  <option value="borongan">Borongan</option>
+                  <option value="satuan">Satuan</option>
+                </select>
+              </label>
+              <label>Email
+                <input type="email" id="registerEmail" required />
+              </label>
+              <button type="submit">Kirim Permintaan Approval</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="appSection" class="hidden">
+        <aside class="sidebar">
+          <h3>Navigasi</h3>
+          <nav id="menu"></nav>
+          <button id="logoutBtn" class="ghost">Logout</button>
+        </aside>
+        <section class="content">
+          <div id="view"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="resellerDashboardTemplate">
+      <section class="panel">
+        <h2>Dashboard Reseller</h2>
+        <div class="stats" id="resellerStats"></div>
+      </section>
+    </template>
+
+    <template id="adminDashboardTemplate">
+      <section class="panel">
+        <h2>Dashboard Admin</h2>
+        <div class="stats" id="adminStats"></div>
+      </section>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
